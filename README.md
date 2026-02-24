@@ -1,26 +1,23 @@
-# SiliconDNA: A CPU Built from Scratch 🧬🖥️
+# 🧬 SiliconDNA: Software-Defined 8-Bit CPU
 
-SiliconDNA is a software-defined 8-bit CPU architecture built entirely from a single logic primitive: the **NAND gate**. This project explores the fundamental bridge between mathematical logic and physical computing.
+SiliconDNA is a functional 8-bit CPU architecture built entirely from a single logical primitive: the **NAND gate**. This project rejects high-level language operators (like `+` or `-`) to explore how complex mathematical reasoning emerges from raw physical switches.
 
-## 🚀 Architectural Overview
-Most software projects rely on high-level abstractions like the `+` operator. SiliconDNA rejects these abstractions, building an entire processing unit from the bottom up.
+## 🚀 Architectural Deep Dive
+The goal of SiliconDNA is to demonstrate the bridge between **Boolean Logic** and **Turing-Complete Computing**.
 
-### Key Components:
-*   **The NAND Foundation:** Every logical operation (NOT, AND, OR, XOR) is derived from a single `NAND(a, b)` function.
-*   **8-Bit ALU:** An Arithmetic Logic Unit that performs addition and comparisons using a Ripple Carry Adder circuit built from software-defined gates.
-*   **Von Neumann Architecture:** A unified memory space (RAM) storing both instructions and data.
-*   **Fetch-Decode-Execute Cycle:** A real processor loop that manages the Program Counter (PC) and register states.
-*   **Custom ISA & Assembler:** Includes a mnemonic-to-binary assembler to write programs in a human-readable assembly language.
-
-## 🛠️ Instruction Set (ISA)
-*   `LOAD_A [addr]` - Load value from RAM to Accumulator.
-*   `LOAD_B [addr]` - Load value from RAM to Register B.
-*   `ADD_B` - Add Accumulator and Register B (using ALU logic).
-*   `STORE_A [addr]` - Save Accumulator value to RAM.
-*   `HALT` - Stop execution.
+### 🛠️ Key Components
+- **The NAND Foundation:** Every logical gate (NOT, AND, OR, XOR) is derived in software using only `NAND(a, b)`. There are no "shortcut" operators used in the ALU logic.
+- **ALU (Arithmetic Logic Unit):** Features a software-engineered **Ripple Carry Adder** circuit. Addition is performed by chaining 8 full-adders, each composed of discrete NAND-based logic gates.
+- **Von Neumann Memory Space:** Implements a unified 256-byte RAM where both program instructions and data live together.
+- **Instruction Set Architecture (ISA):**
+    - `0x01 LOAD_A`: Load from RAM to Accumulator.
+    - `0x02 STORE_A`: Save Accumulator to RAM.
+    - `0x03 ADD_B`: Perform ALU addition between ACC and REG_B.
+    - `0xFF HALT`: Terminate the machine cycle.
+- **The Assembler:** A custom tool that converts human-readable mnemonics into raw binary executables for the SiliconDNA processor.
 
 ## 🧪 Demonstration
-The included `fibonacci.py` script assembles and executes a program to calculate sequences on the virtual silicon, proving the Turing-completeness of the NAND-based architecture.
+The repository includes a program to calculate the **Fibonacci Sequence**, proving that the NAND-based architecture is capable of executing complex recursive algorithms.
 
 ---
-*Developed for the MIT Maker Portfolio 2026. Proving that Compute = Logic.*
+*Part of the MIT Maker Portfolio 2026. Proving that Compute = Logic.* 🧬🖥️
