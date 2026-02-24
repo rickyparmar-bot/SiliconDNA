@@ -1,23 +1,54 @@
 # 🧬 SiliconDNA: Software-Defined 8-Bit CPU
 
-SiliconDNA is a functional 8-bit CPU architecture built entirely from a single logical primitive: the **NAND gate**. This project rejects high-level language operators (like `+` or `-`) to explore how complex mathematical reasoning emerges from raw physical switches.
+![Architecture](https://img.shields.io/badge/Architecture-8--Bit-red) ![Primitive](https://img.shields.io/badge/Logic-NAND--Only-orange) ![Language](https://img.shields.io/badge/Python-3.14-yellow)
 
-## 🚀 Architectural Deep Dive
-The goal of SiliconDNA is to demonstrate the bridge between **Boolean Logic** and **Turing-Complete Computing**.
+SiliconDNA is a functional 8-bit CPU architecture built entirely from a single logical primitive: the **NAND gate**. It explores the fundamental bridge between Boolean logic and recursive computation.
 
-### 🛠️ Key Components
-- **The NAND Foundation:** Every logical gate (NOT, AND, OR, XOR) is derived in software using only `NAND(a, b)`. There are no "shortcut" operators used in the ALU logic.
-- **ALU (Arithmetic Logic Unit):** Features a software-engineered **Ripple Carry Adder** circuit. Addition is performed by chaining 8 full-adders, each composed of discrete NAND-based logic gates.
-- **Von Neumann Memory Space:** Implements a unified 256-byte RAM where both program instructions and data live together.
-- **Instruction Set Architecture (ISA):**
-    - `0x01 LOAD_A`: Load from RAM to Accumulator.
-    - `0x02 STORE_A`: Save Accumulator to RAM.
-    - `0x03 ADD_B`: Perform ALU addition between ACC and REG_B.
-    - `0xFF HALT`: Terminate the machine cycle.
-- **The Assembler:** A custom tool that converts human-readable mnemonics into raw binary executables for the SiliconDNA processor.
+## 🚀 Architectural Design
+This project rejects high-level arithmetic abstractions. Every operation is built from the ground up using simulated electrical switches.
 
-## 🧪 Demonstration
-The repository includes a program to calculate the **Fibonacci Sequence**, proving that the NAND-based architecture is capable of executing complex recursive algorithms.
+### 🛠️ Key Systems
+- **The ALU:** A Ripple Carry Adder built by chaining software-defined half-adders and full-adders.
+- **Von Neumann RAM:** A 256-byte unified memory space where the program instructions and data cohabitate.
+- **Control Unit:** A hardware-accurate Fetch-Decode-Execute cycle loop.
 
 ---
-*Part of the MIT Maker Portfolio 2026. Proving that Compute = Logic.* 🧬🖥️
+
+## 📜 Instruction Set (ISA)
+| Opcode | Mnemonic | Description |
+| :--- | :--- | :--- |
+| `0x01` | `LOAD_A` | Load value from memory address into Accumulator |
+| `0x02` | `STORE_A` | Store Accumulator value into memory address |
+| `0x03` | `ADD_B` | Add ACC and REG_B (NAND-logic addition) |
+| `0x04` | `LOAD_B` | Load value into secondary Register B |
+| `0xFF` | `HALT` | Terminate program execution |
+
+## 💻 How to Run
+1. **Run the CPU:** Execute the processor script which loads a sample program (Addition or Fibonacci).
+   ```bash
+   python3 processor.py
+   ```
+2. **Assemble Custom Code:** (Coming Soon)
+   ```bash
+   python3 assembler.py my_program.asm
+   ```
+
+---
+
+## 📂 Project Structure
+```text
+SiliconDNA/
+├── processor.py    # Main CPU Execution Loop
+├── cpu_logic.py    # NAND-based logical gates & ALU
+├── assembler.py    # Mnemonic to Binary converter
+├── fibonacci.py    # Sample algorithm implementation
+└── README.md       # Surface documentation
+```
+
+## 🗺️ Future Research
+- [ ] **Multi-Core Simulation:** Distributing logic across multiple virtual sockets.
+- [ ] **Graphic Output:** Building a 16x16 pixel frame buffer.
+- [ ] **Machine Learning on NAND:** Implementing a perceptron using only bitwise logic.
+
+---
+*Developed for the MIT Maker Portfolio 2026.* 🧬🖥️
