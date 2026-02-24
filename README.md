@@ -51,4 +51,3 @@ SiliconDNA/
 - [ ] **Machine Learning on NAND:** Implementing a perceptron using only bitwise logic.
 
 ---
-*Developed for the MIT Maker Portfolio 2026.* 🧬🖥️
