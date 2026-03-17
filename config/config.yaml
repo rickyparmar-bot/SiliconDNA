@@ -1,0 +1,50 @@
+app:
+  name: "SiliconDNA"
+  version: "0.1.0"
+  environment: "${APP_ENVIRONMENT}"
+  log_level: "${LOG_LEVEL}"
+
+database:
+  mongodb:
+    uri: "${MONGO_URI}"
+    database_name: "${MONGO_DATABASE}"
+    connection_pool: 10
+    server_selection_timeout_ms: 5000
+    connect_timeout_ms: 5000
+
+  redis:
+    host: "${REDIS_HOST}"
+    port: 6379
+    db: 0
+    decode_responses: true
+    socket_timeout: 5
+    socket_connect_timeout: 5
+
+  rethinkdb:
+    host: "${RETHINKDB_HOST}"
+    port: 28015
+    database: "${RETHINKDB_DATABASE}"
+
+security:
+  bot_token: "${BOT_TOKEN}"
+  owner_ids:
+    - "${OWNER_ID_1}"
+  guild_id: "${GUILD_ID}"
+
+ml:
+  dry_run_mode: "${ML_DRY_RUN}"
+  retrain_interval_seconds: 3600
+  model_storage_path: "./models"
+  shadow_testing: true
+  max_model_age_hours: 24
+
+performance:
+  max_concurrent_operations: 5
+  command_timeout_seconds: 30
+  graceful_shutdown_timeout: 10
+  rate_limit_per_minute: 60
+
+features:
+  hot_reload_enabled: true
+  metrics_dashboard: true
+  colored_logging: true
